@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "2f88fbcd-a96c-4b2d-8e70-f7e1ee2fea50",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25046639"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
+					"protocol": "https",
+					"host": [
+						"www",
+						"thecocktaildb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"list.php"
+					],
+					"query": [
+						{
+							"key": "c",
+							"value": "list"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cocktail API List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.unset(\"variable_key\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
+					"protocol": "https",
+					"host": [
+						"www",
+						"thecocktaildb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"list.php"
+					],
+					"query": [
+						{
+							"key": "c",
+							"value": "list"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filer By Alcoholic",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic",
+					"protocol": "https",
+					"host": [
+						"www",
+						"thecocktaildb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"filter.php"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "Alcoholic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CatFacts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://catfact.ninja/facts",
+					"protocol": "https",
+					"host": [
+						"catfact",
+						"ninja"
+					],
+					"path": [
+						"facts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
